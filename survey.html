@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Survey – Starcom International</title>
+  <style>
+    body {font-family: Inter, Arial, sans-serif; background:#f7f9fc; margin:0; color:#111827;}
+    header {background:#0b3d91; color:white; padding:1rem; text-align:center;}
+    main {max-width:850px; margin:2rem auto; background:white; padding:2rem; border-radius:12px; box-shadow:0 6px 20px rgba(11,61,145,0.1);}
+    h1,h2 {margin-top:0}
+    label {display:block; margin:0.6rem 0 0.25rem; font-weight:600;}
+    input, select, textarea {
+      width:100%; padding:0.8rem; border-radius:8px;
+      border:1px solid #e6e9ef; font-size:1rem;
+    }
+    button {
+      margin-top:1rem; background:#0b3d91; color:white;
+      padding:0.9rem 1.4rem; border-radius:10px; border:0;
+      font-weight:700; cursor:pointer;
+    }
+    button:hover {background:#062d6f;}
+    .muted {color:#6b7280; font-size:0.9rem;}
+    .error {color:#b91c1c; display:none; margin-top:0.5rem;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Starcom International</h1>
+    <div class="muted">Book a Site Survey</div>
+  </header>
+
+  <main>
+    <h2>Schedule Your Free Survey</h2>
+    <p class="muted">Please provide your details below, and we’ll contact you to confirm your booking.</p>
+
+    <form id="surveyForm" novalidate>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="John Doe" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required placeholder="+233 24 000 0000" />
+
+      <label for="location">Survey Location</label>
+      <input type="text" id="location" name="location" required placeholder="Street, City, Region" />
+
+      <label for="date">Preferred Date</label>
+      <input type="date" id="date" name="date" required />
+
+      <label for="time">Preferred Time</label>
+      <input type="time" id="time" name="time" required />
+
+      <label for="service">Service of Interest</label>
+      <select id="service" name="service" required>
+        <option value="">-- Please choose --</option>
+        <option>Security Cameras</option>
+        <option>Electric Fences</option>
+        <option>Automated Gates</option>
+        <option>Access Control</option>
+        <option>Full Package</option>
+      </select>
+
+      <label for="notes">Additional Notes</label>
+      <textarea id="notes" name="notes" rows="4" placeholder="Any special requirements..."></textarea>
+
+      <div id="formError" class="error"></div>
+      <button type="submit">Book Survey</button>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('surveyForm');
+    const errorBox = document.getElementById('formError');
+
+    function isValidEmail(email) {
+      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      const { name, email, phone, location, date, time, service } = form;
+
+      if (!name.value.trim()) { showError("Please enter your name."); name.focus(); return; }
+      if (!email.value.trim() || !isValidEmail(email.value)) { showError("Please enter a valid email."); email.focus(); return; }
+      if (!phone.value.trim()) { showError("Please enter your phone number."); phone.focus(); return; }
+      if (!location.value.trim()) { showError("Please provide the survey location."); location.focus(); return; }
+      if (!date.value) { showError("Please select a preferred date."); date.focus(); return; }
+      if (!time.value) { showError("Please select a preferred time."); time.focus(); return; }
+      if (!service.value) { showError("Please select a service of interest."); service.focus(); return; }
+
+      form.querySelector('button').textContent = 'Submitting...';
+
+      setTimeout(() => {
+        alert(`Thank you ${name.value}! Your survey booking request has been submitted. We will contact you soon.`);
+        form.reset();
+        form.querySelector('button').textContent = 'Book Survey';
+      }, 1000);
+    });
+
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.style.display = 'block';
+    }
+  </script>
+  
+</body>
+</html>

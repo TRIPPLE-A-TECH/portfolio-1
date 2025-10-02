@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Starcom International — Security Solutions</title>
+  <link rel="icon" type="image/png" href="logo1.png">
+  <meta name="description" content="Starcom International — Security cameras, electric fences, automated gates and professional installation." />
+
+
+  <style>
+    :root{
+      --brand:#0b3d91; /* deep blue */
+      --accent:#ffd24d; /* gold */
+      --muted:#6b7280;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --radius:14px;
+      --max-width:1100px;
+      --gap:1.25rem;
+      --shadow: 0 6px 20px rgba(11,61,145,0.08);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg);color:#111827}
+    a{color:inherit;text-decoration:none}
+
+    .container{max-width:var(--max-width);margin:0 auto;padding:1.5rem}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));backdrop-filter: blur(6px);box-shadow:0 1px 0 rgba(0,0,0,0.04)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0.9rem 0}
+    .brand{display:flex;align-items:center;gap:0.75rem}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#0066cc);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:var(--shadow)}
+    .brand h1{font-size:1.05rem;margin:0}
+    nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0;align-items:center}
+    nav a{padding:0.45rem 0.6rem;border-radius:8px;font-weight:600;color:var(--muted)}
+    nav a:hover{color:var(--brand);background:rgba(11,61,145,0.04)}
+
+    /* Mobile menu */
+    .menu-btn{display:none;background:transparent;border:0;padding:0.25rem;border-radius:8px}
+    .menu-icon{width:28px;height:28px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:3rem 0}
+    .hero-left h2{font-size:2rem;margin:0 0 0.5rem;line-height:1.05;color:var(--brand)}
+    .hero-left p{margin:0 0 1.25rem;color:var(--muted)}
+    .cta{display:inline-flex;gap:0.6rem;align-items:center;padding:0.8rem 1.05rem;border-radius:10px;background:var(--brand);color:white;font-weight:700;border:0}
+    .secondary{background:transparent;border:1px solid rgba(11,61,145,0.08);color:var(--brand);padding:0.7rem 1rem;border-radius:10px}
+
+    .hero-right{background:linear-gradient(180deg,rgba(11,61,145,0.03),rgba(11,61,145,0.01));padding:1.25rem;border-radius:12px}
+    .features-grid{display:grid;grid-template-columns:repeat(1,1fr);gap:0.75rem}
+    .feature{display:flex;gap:0.75rem;align-items:center;padding:0.6rem;border-radius:10px;background:var(--card);box-shadow:var(--shadow)}
+
+    /* Products */
+    .products{padding:2rem 0}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .product{background:var(--card);padding:1.2rem;border-radius:12px;box-shadow:var(--shadow);text-align:center}
+    .product h3{margin:0.6rem 0 0.4rem}
+    .product p{color:var(--muted);font-size:0.95rem}
+
+    /* About */
+    .about{display:flex;gap:2rem;align-items:center;padding:2rem 0}
+    .about .card{flex:1;padding:1.25rem;background:var(--card);border-radius:12px;box-shadow:var(--shadow)}
+
+    /* Contact */
+    .contact{padding:2rem 0}
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:1rem}
+    form{display:flex;flex-direction:column;gap:0.7rem}
+    input,textarea{padding:0.85rem;border-radius:8px;border:1px solid #e6e9ef;font-size:0.98rem}
+    button[type=submit]{background:var(--brand);color:white;padding:0.85rem;border-radius:10px;border:0;font-weight:700}
+
+    footer{padding:1.5rem 0;color:var(--muted);font-size:0.95rem}
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .about{flex-direction:column}
+      .products-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      .nav ul{display:none}
+      .menu-btn{display:inline-flex}
+      .menu-open{display:block;position:absolute;top:68px;right:18px;background:var(--card);padding:0.75rem;border-radius:10px;box-shadow:var(--shadow)}
+      .hero-right{display:none}
+      .products-grid{grid-template-columns:1fr}
+      header{padding:0 0}
+      .brand h1{font-size:0.95rem}
+      .logo{width:40px;height:40px}
+    }
+
+    /* Small helpers for icons */
+    .icon{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px;background:rgba(11,61,145,0.06)}
+
+    /* small max widths */
+    @media (max-width:420px){
+      .container{padding:1rem}
+      .hero-left h2{font-size:1.45rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+  <div class="brand" style="display:flex; align-items:center; gap:12px;">
+    <!-- Logo placeholder -->
+    <img src="ChatGPT Image Sep 29, 2025, 02_54_36 PM.png" alt="Starcom International Logo" style="height:60px; width:auto;">
+
+    <!-- Company name + tagline -->
+    <div>
+      <h1 style="margin:0; font-size:1.5rem;">Starcom International</h1>
+      <div class="muted" style="font-size:0.82rem">Security • Surveillance • Protection</div>
+    </div>
+  </div>
+</div>
+
+
+      <nav>
+        <button class="menu-btn" id="menuToggle" aria-label="Toggle menu">
+          <svg class="menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <ul id="menu">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="1products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="menu-open" style="display:none">
+      <ul style="list-style:none;margin:0;padding:0"><li style="padding:0.5rem 0"><a href="#home">Home</a></li><li style="padding:0.5rem 0"><a href="#products">Products</a></li><li style="padding:0.5rem 0"><a href="#about">About</a></li><li style="padding:0.5rem 0"><a href="#contact">Contact</a></li></ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-left">
+        <h2>Smart security solutions for people and places</h2>
+        <p>Starcom International delivers professionally-designed security systems — CCTV cameras, electric fences, access-controlled gates and reliable installation services for homes and businesses.</p>
+        <div style="display:flex;gap:0.6rem">
+          <a class="cta" href="request.html">Request a Quote</a>
+          
+          <a class="secondary" href="products.html">Our Products</a>
+        </div>
+        <div style="margin-top:1.25rem;color:var(--muted);font-size:0.95rem">Serving residential, commercial and industrial customers with warranty-backed products and expert support.</div>
+      </div>
+
+      <aside class="hero-right">
+        <div style="font-weight:700;margin-bottom:0.75rem">Why choose Starcom</div>
+        <div class="features-grid">
+          <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <!-- Camera SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 7l-3 2H6L3 7" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="7" width="18" height="12" rx="2" stroke="#0b3d91" stroke-width="1.6"/><circle cx="12" cy="13" r="3" stroke="#0b3d91" stroke-width="1.6"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:700">Trusted Hardware</div>
+              <div class="muted" style="font-size:0.92rem">Top brands and durable components</div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <!-- Shield SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l7 3v5c0 5-4 9-7 10-3-1-7-5-7-10V5l7-3z" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:700">Professional Support</div>
+              <div class="muted" style="font-size:0.92rem">Design, install and maintain services</div>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="icon" aria-hidden="true">
+              <!-- Gear SVG -->
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7z" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V22a2 2 0 1 1-4 0v-.05a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06A2 2 0 1 1 2.27 19.9l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H2a2 2 0 1 1 0-4h.05a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82L3.2 6.64A2 2 0 1 1 6 3.8l.06.06a1.65 1.65 0 0 0 1.82.33H8a1.65 1.65 0 0 0 1-1.51V2a2 2 0 1 1 4 0v.05c.2.6.68 1.08 1.28 1.28l.06.02a1.65 1.65 0 0 0 1.51-1h1.2A2 2 0 1 1 20 6.6l-.06.06a1.65 1.65 0 0 0-.33 1.82 1.65 1.65 0 0 0 1.51 1H22a2 2 0 1 1 0 4h-.05a1.65 1.65 0 0 0-1.51 1z" stroke="#0b3d91" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:700">Custom Solutions</div>
+              <div class="muted" style="font-size:0.92rem">Tailored systems for any site</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="products" class="products">
+      <h2 style="margin:0 0 0.8rem">Products & Services</h2>
+      <p class="muted" style="margin:0 0 1.25rem">Explore our core offerings — hardware and installation packages built for reliability.</p>
+
+      <div class="products-grid">
+        <article class="product">
+          <div style="display:flex;justify-content:center"><div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="20" height="12" rx="2" stroke="#0b3d91" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="#0b3d91" stroke-width="1.6"/></svg></div></div>
+          <h3>Security Cameras</h3>
+          <p>IP and analog CCTV systems, night vision, remote monitoring and recording solutions for any property.</p>
+        </article>
+
+        <article class="product">
+          <div style="display:flex;justify-content:center"><div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round"/><path d="M5 9v6M9 9v6M13 9v6M17 9v6M21 9v6" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round"/></svg></div></div>
+          <h3>Electric Fences</h3>
+          <p>Deterrent fencing with reliable power systems and alarm integration for perimeter protection.</p>
+        </article>
+
+        <article class="product">
+          <div style="display:flex;justify-content:center"><div class="icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 12h18M7 12V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v6" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 15v6" stroke="#0b3d91" stroke-width="1.6" stroke-linecap="round"/></svg></div></div>
+          <h3>Automated Gates</h3>
+          <p>Sliding and swing gate systems with access control, remote operation and safety sensors.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="card">
+        <h2 style="margin-top:0">About Starcom International</h2>
+        <p class="muted">We combine proven hardware with experienced technicians to provide security systems that work. From initial site survey to installation and aftercare, our goal is your peace of mind.</p>
+
+        <div style="margin-top:1rem" class="grid-2">
+          <div>
+            <h3 style="margin:0 0 0.4rem">Mission</h3>
+            <p class="muted" style="margin:0">Deliver accessible, reliable security solutions that protect people, property and assets.</p>
+          </div>
+          <div>
+            <h3 style="margin:0 0 0.4rem">Vision</h3>
+            <p class="muted" style="margin:0">To be the most trusted security partner across the region — known for integrity and performance.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:1rem">
+          <h3 style="margin:0 0 0.4rem">Values</h3>
+          <p class="muted" style="margin:0">Safety • Quality • Responsiveness • Transparency</p>
+        </div>
+      </div>
+
+      <div style="flex-basis:360px;min-width:260px">
+        <div style="background:linear-gradient(135deg,var(--brand),#0066cc);color:white;padding:1.25rem;border-radius:12px;box-shadow:var(--shadow)">
+          <h3 style="margin:0 0 0.5rem">Request a free site survey</h3>
+          <p style="margin:0 0 0.75rem">Our technicians will assess your property and recommend a tailored security package.</p>
+          <a href="survey.html" class="cta">Book Survey</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 style="margin:0 0 0.6rem">Contact Us</h2>
+      <p class="muted" style="margin:0 0 1rem">Get in touch for product enquiries, installations, and support.</p>
+
+      <div class="contact-grid">
+        <div>
+          <form id="contactForm" novalidate>
+            <label for="name" class="muted">Name</label>
+            <input id="name" name="name" required placeholder="Your full name" />
+
+            <label for="email" class="muted">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" />
+
+            <label for="message" class="muted">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your security needs"></textarea>
+
+            <div id="formError" style="color:#b91c1c;font-size:0.93rem;display:none"></div>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+
+        <aside style="background:var(--card);padding:1rem;border-radius:12px;box-shadow:var(--shadow)">
+          <h3 style="margin-top:0">Company Info</h3>
+          <p class="muted" style="margin:0 0 0.6rem">Starcom International<br/>Accra, Ghana<br/>Phone: +233 24 416 4186<br/>Email: starcom@gmail.com</p>
+
+          <div style="margin-top:0.6rem">
+            <strong>Hours</strong>
+            <div class="muted">Mon—Fri 8:00 — 17:00</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div class="muted">© <span id="year"></span> Starcom International. All rights reserved.</div>
+        <div class="muted">Designed & Developed by ©TRIPPLE A INDUSTRIES</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuToggle.addEventListener('click', ()=>{
+      const isHidden = mobileMenu.style.display === 'none' || mobileMenu.style.display === '';
+      mobileMenu.style.display = isHidden ? 'block' : 'none';
+    });
+
+    // Smooth scroll and offset for sticky header
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click', (e)=>{
+        const targetId = link.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if(target){
+          e.preventDefault();
+          const headerOffset = 70; // approximate
+          const elementPosition = target.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+          window.scrollTo({top: offsetPosition,behavior:'smooth'});
+          // hide mobile menu after click
+          if(window.innerWidth <= 640) mobileMenu.style.display = 'none';
+        }
+      })
+    });
+
+    // Simple form validation + fake submit
+    const form = document.getElementById('contactForm');
+    const formError = document.getElementById('formError');
+    function isValidEmail(email){
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      formError.style.display = 'none';
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      if(!name){ formError.textContent = 'Please enter your name.'; formError.style.display = 'block'; form.name.focus(); return; }
+      if(!email || !isValidEmail(email)){ formError.textContent = 'Please enter a valid email address.'; formError.style.display = 'block'; form.email.focus(); return; }
+      if(!message || message.length < 10){ formError.textContent = 'Please enter a message (at least 10 characters).'; formError.style.display = 'block'; form.message.focus(); return; }
+
+      // Simulate successful submission
+      form.querySelector('button[type=submit]').textContent = 'Sending...';
+      setTimeout(()=>{
+        form.querySelector('button[type=submit]').textContent = 'Send Message';
+        alert('Thanks '+name+" — your message has been received. We'll contact you soon.");
+        form.reset();
+      },700);
+    });
+
+    // Accessibility: close mobile menu when clicking outside
+    document.addEventListener('click', (e)=>{
+      const target = e.target;
+      if(window.innerWidth <= 640){
+        if(!mobileMenu.contains(target) && !menuToggle.contains(target)){
+          mobileMenu.style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

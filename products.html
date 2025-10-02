@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Products – Starcom International</title>
+  <style>
+    body {font-family: Inter, Arial, sans-serif; margin:0; background:#f7f9fc; color:#111827;}
+    header {background:#0b3d91; color:white; padding:1rem; text-align:center;}
+    main {max-width:1100px; margin:2rem auto; padding:1rem;}
+    h1 {margin-top:0}
+    .grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem;}
+    .card {
+      background:white; border-radius:12px; padding:1rem; 
+      box-shadow:0 6px 20px rgba(11,61,145,0.08);
+      display:flex; flex-direction:column; justify-content:space-between;
+    }
+    .card img {width:100%; border-radius:10px; object-fit:cover; max-height:180px;}
+    .card h3 {margin:0.8rem 0 0.4rem;}
+    .card p {color:#6b7280; font-size:0.95rem; flex-grow:1;}
+    .btn {
+      display:inline-block; margin-top:0.8rem;
+      background:#0b3d91; color:white; padding:0.6rem 1rem;
+      border-radius:8px; text-decoration:none; font-weight:600; text-align:center;
+    }
+    .btn:hover {background:#062d6f;}
+    footer {text-align:center; margin:2rem 0; color:#6b7280; font-size:0.9rem;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Starcom International</h1>
+    <div style="font-size:0.9rem;">Our Products & Services</div>
+  </header>
+
+  <main>
+    <h2 style="margin-top:0">Explore Our Security Solutions</h2>
+    <p style="color:#6b7280;max-width:720px;">
+      We provide advanced hardware and professional installation for homes, offices, and industries.
+      Browse our key product lines below.
+    </p>
+
+    <section class="grid">
+      <div class="card">
+        <img src="lorex-home-center-with-1080p-cameras-camera-outside.jpg" alt="Security Cameras">
+        <h3>Security Cameras</h3>
+        <p>High-definition IP and analog CCTV systems, remote monitoring, night vision, and DVR/NVR recording solutions.</p>
+        <a href="quote.html" class="btn">Request Quote</a>
+      </div>
+
+      <div class="card">
+        <img src="electric fence.jpg" alt="Electric Fences">
+        <h3>Electric Fences</h3>
+        <p>Powerful perimeter protection with energizers, alarm integration, and tamper detection for maximum security.</p>
+        <a href="quote.html" class="btn">Request Quote</a>
+      </div>
+
+      <div class="card">
+        <img src="electric gate.avif" alt="Automated Gates">
+        <h3>Automated Gates</h3>
+        <p>Sliding and swing gate automation, remote access control, and integrated safety sensors for secure entry.</p>
+        <a href="quote.html" class="btn">Request Quote</a>
+      </div>
+
+      <div class="card">
+        <img src="Access Control.webp" alt="Access Control Systems">
+        <h3>Access Control</h3>
+        <p>Biometric readers, RFID card systems, and keypad entry for offices, schools, and secure facilities.</p>
+        <a href="quote.html" class="btn">Request Quote</a>
+      </div>
+
+      <div class="card">
+        <img src="Alarm Systems.jpeg" alt="Alarm Systems">
+        <h3>Alarm Systems</h3>
+        <p>Intruder detection with motion sensors, glass-break detectors, and 24/7 monitoring for fast response.</p>
+        <a href="quote.html" class="btn">Request Quote</a>
+      </div>
+
+      <div class="card">
+        <img src="Intercom Systems.jpg" alt="Intercom Systems">
+        <h3>Intercom Systems</h3>
+        <p>Audio and video intercom solutions to improve communication and control access to your premises.</p>
+        <a href="quote.html" class="btn">Request Quote</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Starcom International — All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
